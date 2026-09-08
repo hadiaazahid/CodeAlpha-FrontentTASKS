@@ -1,4 +1,4 @@
-                            **Image Gallery Web App (CodeAlpha Internship Task)**
+**Image Gallery Web App (CodeAlpha Internship Task)**
 
 A responsive image gallery web application built with HTML, CSS, and JavaScript.
 
