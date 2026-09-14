@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ImageGallery</title>
+	<link rel="stylesheet" type="text/css" href="ImageGallery.css">
+
+</head>
+<body>
+
+
+<div class="menu-icon" onclick="toggleSidebar()">
+	&#9776;
+</div>
+
+<div id="sidebar" class="sidebar">
+	<a href="javascript:void(0)" class="close-sidebar" onclick="toggleSidebar()">&times;</a>
+	<h3>Menu</h3>
+	<a href="#" onclick="showSection('gallery')">🏠 Home Gallery</a>
+	<a href="#" onclick="showSection('favorites')">❤️ Favorites (<span id="fav-count">0</span>)</a>
+	<a href="#" onclick="showSection('recycle')">🗑️ Recycle Bin (<span id="rec-count">0</span>)</a>
+</div>
+
+
+
+<br>
+	<h1 style="text-align: center;color: ivory;">
+		MY IMAGE GALLERY
+	</h1>
+	<h2 style="text-align: center;color: ivory;">
+		Save your memories
+	</h2>
+
+<br>
+
+<div class="gallery-controls">
+    <input type="text5" id="search-input" placeholder="Search Category (e.g., Plants, Nature)..." onkeyup="searchImages()">
+    
+    <button onclick="toggleFullScreen()">⛶ Full Screen</button>
+    <button onclick="toggleTheme()">🌓 Theme</button>
+</div>
+
+
+
+<nav id="n2">
+	<button class="b1" onclick="filterGallery('all')"><b>All Albums</b></button>
+	<button class="b1" onclick="filterGallery('nature')"><b>Nature</b></button>
+	<button class="b1" onclick="filterGallery('animals')"><b>Animals</b></button>
+	<button class="b1" onclick="filterGallery('plants')"><b>Plants</b></button>
+	<button class="b1" onclick="filterGallery('sports')"><b>Sports</b></button>
+	<button class="b1" onclick="filterGallery('food')"><b>Food</b></button>
+	<button class="b1" onclick="filterGallery('abstract')"><b>Abstract Art</b></button>
+	<button class="b1" onclick="filterGallery('visiting places')"><b>Visiting Places</b></button>
+</nav>
+
+
+<br>
+
+<div style="text-align: center;">
+	<button class="date-btn" onclick="displaydate()">Show date</button>
+</div>
+
+<p id="date" style="color: white; text-align: center; font-size: 18px;"></p>
+
+<br>
+<br>
+
+<div class="full-image" id="FullImageBox">
+    <span class="s1" onclick="closeFullImg()">x</span>
+    <span class="s2" onclick="slideImage(-1)"><</span>
+    <img src="" alt="" id="FullImage">
+    <span class="s3" onclick="slideImage(1)">></span>
+
+
+<div class="lightbox-actions">
+	<span id="fav-btn" onclick="toggleFavorite()">❤️ Favorite</span>
+	<span id="del-btn" onclick="moveToRecycleBin()">🗑️ Move to Recycle Bin</span>
+	<span id="restore-btn" onclick="restoreImage()" style="display:none;">♻️ Restore</span>
+	<span id="perm-del-btn" onclick="permanentDelete()" style="display:none; color: red;">❌Delete Permanently</span>
+    <button onclick="toggleSlideshow()" id="slideshow-btn">▶ Slideshow</button>
+</div>
+
+
+
+<div class="array">
+    <img src="n1.jfif" onclick="changeImage(this.src)">
+    <img src="a1.jfif" onclick="changeImage(this.src)">
+    <img src="p1.jfif" onclick="changeImage(this.src)">
+    <img src="s1.jfif" onclick="changeImage(this.src)">
+    <img src="f1.jfif" onclick="changeImage(this.src)">
+    <img src="ab1.jfif" onclick="changeImage(this.src)">
+    <img src="v1.jfif" onclick="changeImage(this.src)">
+    <img src="a2.jfif" onclick="changeImage(this.src)">
+    <img src="p2.jfif" onclick="changeImage(this.src)">
+    <img src="v2.jfif" onclick="changeImage(this.src)">
+    <img src="ab2.jfif" onclick="changeImage(this.src)">
+    <img src="n2.jfif" onclick="changeImage(this.src)">
+    <img src="f2.jfif" onclick="changeImage(this.src)">
+    <img src="ab3.jfif" onclick="changeImage(this.src)">
+    <img src="p9.jfif" onclick="changeImage(this.src)">
+    <img src="n3.jfif" onclick="changeImage(this.src)">
+    <img src="p3.jfif" onclick="changeImage(this.src)">
+    <img src="v3.jfif" onclick="changeImage(this.src)">
+    <img src="n4.jfif" onclick="changeImage(this.src)">
+    <img src="f3.jfif" onclick="changeImage(this.src)">
+    <img src="n5.jfif" onclick="changeImage(this.src)">
+    <img src="a3.jfif" onclick="changeImage(this.src)">
+    <img src="s2.jfif" onclick="changeImage(this.src)">
+    <img src="ab4.jfif" onclick="changeImage(this.src)">
+    <img src="n6.jfif" onclick="changeImage(this.src)">
+    <img src="v2.jfif" onclick="changeImage(this.src)">
+    <img src="f4.jfif" onclick="changeImage(this.src)">
+    <img src="n7.jfif" onclick="changeImage(this.src)">
+    <img src="s3.jfif" onclick="changeImage(this.src)">
+    <img src="n8.jfif" onclick="changeImage(this.src)">
+    <img src="p4.jfif" onclick="changeImage(this.src)">
+    <img src="v4.jfif" onclick="changeImage(this.src)">
+    <img src="p5.jfif" onclick="changeImage(this.src)">
+    <img src="a6.jfif" onclick="changeImage(this.src)">
+    <img src="ab5.jfif" onclick="changeImage(this.src)">
+    <img src="f5.jfif" onclick="changeImage(this.src)">
+    <img src="v5.jfif" onclick="changeImage(this.src)">
+    <img src="p6.jfif" onclick="changeImage(this.src)">
+    <img src="v6.jfif" onclick="changeImage(this.src)">
+    <img src="f6.jfif" onclick="changeImage(this.src)">
+    <img src="s4.jfif" onclick="changeImage(this.src)">
+    <img src="a4.jfif" onclick="changeImage(this.src)">
+    <img src="ab6.jfif" onclick="changeImage(this.src)">
+    <img src="v7.jfif" onclick="changeImage(this.src)">
+    <img src="f7.jfif" onclick="changeImage(this.src)">
+    <img src="s5.jfif" onclick="changeImage(this.src)">
+    <img src="ab7.jfif" onclick="changeImage(this.src)">
+    <img src="a5.jfif" onclick="changeImage(this.src)">
+    <img src="v8.jfif" onclick="changeImage(this.src)">
+    <img src="ab8.jfif" onclick="changeImage(this.src)">
+    <img src="p7.jfif" onclick="changeImage(this.src)">
+    <img src="v9.jfif" onclick="changeImage(this.src)">
+    <img src="f8.jfif" onclick="changeImage(this.src)">
+    <img src="s6.jfif" onclick="changeImage(this.src)">
+    <img src="p8.jfif" onclick="changeImage(this.src)">
+    <img src="s7.jfif" onclick="changeImage(this.src)">
+    <img src="ab9.jfif" onclick="changeImage(this.src)">
+    <img src="a7.jfif" onclick="changeImage(this.src)">
+    <img src="v10.jfif" onclick="changeImage(this.src)">
+</div>
+
+</div>
+
+<div class="main">
+	<div class="gallery-item" data-category="nature"><img src="n1.jfif" alt="Nature picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="animals"><img src="a1.jfif" alt="Animals picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="plants"><img src="p1.jfif" alt="Plants picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="sports"><img src="s1.jfif" alt="Sports picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="food"><img src="f1.jfif" alt="Food picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="abstract"><img src="ab1.jfif" alt="Abstract picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v1.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="animals"><img src="a2.jfif" alt="Animals picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="plants"><img src="p2.jfif" alt="Plants picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v9.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="abstract"><img src="ab2.jfif" alt="Abstract picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="nature"><img src="n2.jfif" alt="Nature picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="food"><img src="f2.jfif" alt="Food picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="abstract"><img src="ab3.jfif" alt="Abstract picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="plants"><img src="p9.jfif" alt="Plants picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="nature"><img src="n3.jfif" alt="Nature picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="plants"><img src="p3.jfif" alt="Plants picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v3.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="nature"><img src="n4.jfif" alt="Nature picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="food"><img src="f3.jfif" alt="Food picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="nature"><img src="n5.jfif" alt="Nature picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="animals"><img src="a3.jfif" alt="Animals picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="sports"><img src="s2.jfif" alt="Sports picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="abstract"><img src="ab4.jfif" alt="Abstract picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="nature"><img src="n6.jfif" alt="Nature picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v2.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="food"><img src="f4.jfif" alt="Food picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="nature"><img src="n7.jfif" alt="Nature picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="sports"><img src="s3.jfif" alt="Sports picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="nature"><img src="n8.jfif" alt="Nature picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="plants"><img src="p4.jfif" alt="Plants picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v4.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="plants"><img src="p5.jfif" alt="Plants picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="animals"><img src="a6.jfif" alt="Animals picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="abstract"><img src="ab5.jfif" alt="Abstract picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="food"><img src="f5.jfif" alt="Food picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v5.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="plants"><img src="p6.jfif" alt="Plants picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v6.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="food"><img src="f6.jfif" alt="Food picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="sports"><img src="s4.jfif" alt="Sports picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="animals"><img src="a4.jfif" alt="Animals picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="abstract"><img src="ab6.jfif" alt="Abstract picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v7.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="food"><img src="f7.jfif" alt="Food picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="sports"><img src="s5.jfif" alt="Sports picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="abstract"><img src="ab7.jfif" alt="Abstract picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="animals"><img src="a5.jfif" alt="Animals picture" style="width: 100%;height: 100%
+;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v8.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="abstract"><img src="ab8.jfif" alt="Abstract picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="plants"><img src="p7.jfif" alt="Plants picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v9.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="food"><img src="f8.jfif" alt="Food picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="sports"><img src="s6.jfif" alt="Sports picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="plants"><img src="p8.jfif" alt="Plants picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="sports"><img src="s7.jfif" alt="Sports picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="abstract"><img src="ab9.jfif" alt="Abstract picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="animals"><img src="a7.jfif" alt="Animals picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+	<div class="gallery-item" data-category="visiting places"><img src="v10.jfif" alt="Visiting Places picture" style="width: 100%;height: 100%;object-fit: cover;border-radius: 15px;" onclick="openFullImg(this.src)"></div>
+</div>
+
+
+
+<script src="ImageGallery.js"></script>
+
+</body>
+</html>
+
+
+

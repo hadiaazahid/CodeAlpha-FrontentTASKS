@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="Portfolio.css">
+</head>
+<body>
+
+  <div class="cursor-glow"></div>
+  <header class="header" id="header">
+    <a class="logo" href="#home">HADIA ZAHID</a>
+    <nav class="nav" id="nav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#works" class="nav-link">Works</a>
+      <a href="#services" class="nav-link">My Services</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#contact" class="contact-btn">Contact me</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+
+
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-bg bg-one"></div>
+      <div class="hero-bg bg-two"></div>
+      <div class="hero-content">
+        <p class="eyebrow">HI.... I am Hadia Zahid</p>
+        <h1>Creative Designer &<br><span id="typingText">Web Developer</span><b class="caret">|</b></h1>
+        <p class="hero-copy">I build designs and websites that solve problems in easy way.</p>
+
+        <div class="hero-visual">
+          <div class="image-back"></div>
+          <img src="1.webp" alt="">
+          <div class="explore">
+            <div class="explore-ring">LET'S&nbsp; EXPLORE&nbsp; MORE&nbsp; •&nbsp; LET'S&nbsp; EXPLORE&nbsp; MORE&nbsp; •</div>
+            <button onclick="document.querySelector('#works').scrollIntoView({behavior:'smooth'})">↓</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="about section">
+      <div class="about-text">
+        <h2>About Me: freelancer who enjoys <span>web</span>  <span>development</span>, passionate about my work</h2>
+      </div>
+      <div class="about-cta">
+        <p>If you have a project in mind, check out my work and contact me to work together. Thank You</p>
+        <a href="#contact" class="pill-btn">Contact me <i>→</i></a>
+      </div>
+    </section>
+
+
+
+    <section class="works section" id="works">
+      <div class="section-heading">
+        <h2><span>My</span> Works</h2>
+      </div>
+      <div class="works-wrap">
+        <button class="slider-arrow left" id="prevWork">‹</button>
+        <div class="works-track" id="worksTrack">
+          <article class="work-card">
+            <img src="2.png" alt="">
+            <div class="work-info"><strong>01</strong><h3>Event Management</h3><p>Designed a responsive event management platform with custom UI layouts, dynamic menus, and smooth user navigation.</p></div>
+          </article>
+          <article class="work-card">
+            <img src="3.png" alt="">
+            <div class="work-info"><strong>02</strong><h3>Computer Networking</h3><p>Configured a complete university campus network topology using Cisco Packet Tracer, featuring inter-VLAN routing and FTP services.</p></div>
+          </article>
+          <article class="work-card">
+            <img src="4.png" alt="">
+            <div class="work-info"><strong>03</strong><h3>Crime Monitor Website</h3><p>Built a database-driven crime tracking and report management system featuring secure authentication and an intuitive user dashboard.</p></div>
+          </article>
+          <article class="work-card extra-card">
+            <img src="5.png" alt="">
+            <div class="work-info"><strong>04</strong><h3>Wild Sentinal Database</h3><p>Developed a structured PostgreSQL database system complete with optimized relational schemas, triggers, and flight/data management procedures.</p></div>
+          </article>
+        </div>
+        <button class="slider-arrow right" id="nextWork">›</button>
+      </div>
+      <div class="dots" id="dots"><button class="dot active"></button><button class="dot"></button><button class="dot"></button><button class="dot"></button></div>
+    </section>
+
+
+
+
+    <section class="services section" id="services">
+      <div class="section-heading"><h2><span>My</span> Services</h2></div>
+      <div class="accordion">
+        <div class="service-item open">
+          <button class="service-head"><span class="service-icon">&lt;/&gt;</span><span>Website Developer</span><span class="chevron">⌄</span></button>
+          <div class="service-body"><p>Turning designs into functional, responsive web pages using clean code and server side logic.</p><div class="tags"><span>Web development</span><span>Web performance</span><span>Responsive design</span></div></div>
+        </div>
+        <div class="service-item">
+          <button class="service-head"><span class="service-icon">▤</span><span>Backend Developer</span><span class="chevron">⌄</span></button>
+          <div class="service-body"><p>Handling server-side logic, managing relational databases, and connecting everything smoothly for web apps.</p><div class="tags"><span>Server Logic</span><span>Database</span><span>Error handling</span></div></div>
+        </div>
+        <div class="service-item">
+          <button class="service-head"><span class="service-icon">♢</span><span>Web Designer</span><span class="chevron">⌄</span></button>
+          <div class="service-body"><p>Crafting clean visual layouts, user interfaces, and appealing designs to make websites look beautiful.</p><div class="tags"><span>UI Design</span><span>UX</span><span>Figma</span></div></div>
+        </div>
+        <div class="service-item">
+          <button class="service-head"><span class="service-icon">⌕</span><span>Database Designer</span><span class="chevron">⌄</span></button>
+          <div class="service-body"><p>Structuring clean database schemas, writing efficient queries, and keeping data organized for projects.</p><div class="tags"><span>SQL queries</span><span>Schema Design</span><span>Data Management</span></div></div>
+        </div>
+        <div class="service-item">
+          <button class="service-head"><span class="service-icon">▤</span><span>Graphic Designer</span><span class="chevron">⌄</span></button>
+          <div class="service-body"><p>Creating eye-catching posters, clean layouts, and digital designs using creative tools.</p><div class="tags"><span>Posters </span><span>Visual Layout</span><span>Logos</span></div></div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="skills section" id="skills">
+      <div class="section-heading"><h2><span>My</span> Skills</h2></div>
+      <div class="skills-grid">
+        <div class="skill-card"><div class="skill-top"><span>HTML</span><b>95%</b></div><div class="bar"><i style="width:95%"></i></div></div>
+        <div class="skill-card"><div class="skill-top"><span>CSS</span><b>90%</b></div><div class="bar"><i style="width:90%"></i></div></div>
+        <div class="skill-card"><div class="skill-top"><span>JavaScript</span><b>85%</b></div><div class="bar"><i style="width:85%"></i></div></div>
+        <div class="skill-card"><div class="skill-top"><span>Figma</span><b>80%</b></div><div class="bar"><i style="width:80%"></i></div></div>
+        <div class="skill-card"><div class="skill-top"><span>Canva</span><b>80%</b></div><div class="bar"><i style="width:80%"></i></div></div>
+        <div class="skill-card"><div class="skill-top"><span>Adobe Illustrator</span><b>80%</b></div><div class="bar"><i style="width:80%"></i></div></div>
+      </div>
+    </section>
+
+
+
+    <section class="contact section" id="contact">
+      <div class="section-heading"><h2>Contact <span>Me</span></h2></div>
+      <div class="contact-grid">
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Name" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <textarea id="message" placeholder="Message" required></textarea>
+          <button type="submit" class="send-btn">Send Message <i>→</i></button>
+          <p class="success" id="success">Message sent successfully ✅</p>
+        </form>
+        <div class="contact-info">
+          <a class="info-card" href="hadiazahid259@gmail.com"><span class="info-icon">✉</span><span><b>Email</b><small>hadiazahid259@gmail.com</small></span><em>↗</em></a>
+          <a class="info-card" href="tel:+991234567890"><span class="info-icon">♧</span><span><b>Phone number</b><small>+92 1234567890</small></span><em>↗</em></a>
+          <a class="info-card" href="#"><span class="info-icon">⌖</span><span><b>Location</b><small>Pakistan</small></span><em>↗</em></a>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+
+
+
+  <button class="top-btn" id="topBtn">↑</button>
+  <footer>© <span id="year"></span> Hadia Zahid. All rights reserved.</footer>
+  <script src="Portfolio.js"></script>
+</body>
+</html>
