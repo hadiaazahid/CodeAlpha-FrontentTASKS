@@ -1,4 +1,5 @@
 **Task 1: Image Gallery Web Application (CodeAlpha Internship Task)**
+
 A responsive and interactive Image Gallery web application built with HTML5, CSS3, and JavaScript, featuring a dynamic lightbox viewer and real-time category search filtering.
 
 ---
