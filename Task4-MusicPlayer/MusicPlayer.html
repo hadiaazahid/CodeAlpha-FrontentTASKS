@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Music player</title>
+</head>
+<body>
+
+</body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet" href="MusicPlayer.css">
+
+<style>
+
+.player-card{
+    max-width: 1050px;
+    width: 90%;
+    margin: 25px auto 35px;
+    padding: 42px 50px 30px;
+}
+
+.now-playing{
+    gap: 45px;
+}
+
+.cover{
+    width: 250px;
+    height: 250px;
+}
+    
+.cover-wrapper{
+    width: 250px;
+    height: 250px;
+}
+
+.song-info h2{
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.song-info p{
+    font-size: 19px;
+}
+
+.favorite-btn{
+    width: 58px;
+    height: 58px;
+    margin-top: 18px;
+}
+
+.progress-area{
+    margin-top: 35px;
+}
+
+.controls{
+    margin: 25px 0;
+    gap: 32px;
+}
+
+.play-btn{
+    width: 68px;
+    height: 68px;
+}
+
+.bottom-controls{
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+</style>
+
+</head>
+<body>
+
+    <div class="page-glow glow-one"></div>
+    <div class="page-glow glow-two"></div>
+
+
+    <div class="app">
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-headphones"></i>
+
+                </div>
+
+                <div class="brand-text">
+
+                    <h2>SoundPulse</h2>
+
+                    <span>Music Player</span>
+
+                </div>
+
+            </div>
+            
+            <nav class="navigation">
+
+                <p class="nav-title">MENU</p>
+
+
+                <button class="nav-item active">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>Home</span>
+
+                </button>
+
+
+                <button class="nav-item">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                    <span>Liked Songs</span>
+
+                </button>
+
+
+                <button class="nav-item">
+
+                    <i class="fa-solid fa-music"></i>
+
+                    <span>My Playlist</span>
+
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <p class="nav-title">CURRENTLY PLAYING</p>
+
+
+                <div class="mini-player">
+
+                    <img id="sideCover" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700" alt="Album Cover">
+
+                    <div class="mini-info">
+
+                        <strong id="sideTitle">Midnight Dreams</strong>
+
+                        <small id="sideArtist">Luna</small>
+
+                    </div>
+
+                    <i class="fa-solid fa-volume-high mini-volume"></i>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+        
+        <main class="content">
+
+            <header class="topbar">
+
+    <div>
+
+        <span class="welcome">WELCOME BACK</span>
+
+        <h1>Listen to your music.</h1>
+
+    </div>
+
+</header>
+
+            <section class="player-card">
+
+                <div class="now-playing">
+
+
+                    <div class="cover-wrapper">
+
+                        <div class="cover-glow"></div>
+
+                        <img id="cover" class="cover" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700" alt="Album Cover">
+
+                    </div>
+
+
+                    <div class="song-info">
+
+                        <div class="playing-label">
+
+                            <span class="pulse"></span>
+
+                            NOW PLAYING
+
+                        </div>
+
+
+                        <h2 id="title">Midnight Dreams</h2>
+
+
+                        <p id="artist">Luna</p>
+
+
+                        <button id="favoriteBtn" class="favorite-btn" title="Add to favorites">
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div class="progress-area">
+
+                    <span id="currentTime">0:00</span>
+
+
+                    <input type="range" id="progress" min="0" max="100" value="0">
+
+
+                    <span id="duration"> 0:00</span>
+
+                </div>
+
+                <div class="controls">
+
+
+                    <button id="shuffleBtn" class="control-btn" title="Shuffle">
+
+                        <i class="fa-solid fa-shuffle"></i>
+
+                    </button>
+
+
+                    <button id="prevBtn" class="control-btn" title="Previous">
+
+                        <i class="fa-solid fa-backward-step"></i>
+
+                    </button>
+
+
+                    <button id="playBtn" class="play-btn" title="Play">
+
+                        <i class="fa-solid fa-play"></i>
+
+                    </button>
+
+
+                    <button id="nextBtn" class="control-btn" title="Next">
+
+                        <i class="fa-solid fa-forward-step"></i>
+
+                    </button>
+
+
+                    <button id="repeatBtn" class="control-btn" title="Repeat">
+
+                        <i class="fa-solid fa-repeat"></i>
+
+                    </button>
+
+                </div>
+
+                <div class="bottom-controls">
+
+
+                    <div class="volume-control">
+
+                        <button id="muteBtn" class="small-btn" title="Mute">
+
+                            <i class="fa-solid fa-volume-high"></i>
+
+                        </button>
+
+
+                        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
+
+                    </div>
+
+
+
+                    <label class="autoplay">
+
+                        <input type="checkbox" id="autoplay" checked>
+
+                        <span class="custom-checkbox"></span>
+
+                        Autoplay
+
+                    </label>
+
+                </div>
+
+            </section>
+
+
+            <section class="playlist-card">
+
+
+                <div class="playlist-header">
+
+                    <div>
+
+                        <span class="section-label">YOUR MUSIC</span>
+
+                        <h2>Playlist</h2>
+
+                    </div>
+
+
+                    <div class="playlist-actions">
+
+                        <span id="songCount">11 Songs</span>
+
+
+                        <div class="search-box">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input type="text" id="search"  placeholder="Search songs...">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="playlist-list" id="playlist">
+
+
+                    <div class="playlist-item active" data-index="0">
+
+                        <span class="song-number">01</span>
+
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=700" alt="Midnight Dreams">
+
+                        <div class="song-details">
+
+                            <h4>Midnight Dreams</h4>
+
+                            <p>Luna</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item" data-index="1">
+
+                        <span class="song-number">02</span>
+
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700" alt="Echoes of Silence">
+
+                        <div class="song-details">
+
+                            <h4>Echoes of Silence</h4>
+
+                            <p>Vibe Realm</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item" data-index="2">
+
+                        <span class="song-number">03</span>
+
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=700" alt="Neon Horizon">
+
+                        <div class="song-details">
+
+                            <h4>Neon Horizon</h4>
+
+                            <p>Synthwave Pulse</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item" data-index="3">
+
+                        <span class="song-number">04</span>
+
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=700" alt="Electric Avenue">
+
+                        <div class="song-details">
+
+                            <h4>Electric Avenue</h4>
+
+                            <p>Urban Drift</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item" data-index="4">
+
+                        <span class="song-number">05</span>
+
+                        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=700" alt="Starlight Voyage">
+
+                        <div class="song-details">
+
+                            <h4>Starlight Voyage</h4>
+
+                            <p>Celestial Sound</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item"data-index="5">
+
+                        <span class="song-number">06</span>
+
+                        <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=700" alt="Golden Memories">
+
+                        <div class="song-details">
+
+                            <h4>Golden Memories</h4>
+
+                            <p>Acoustic Tales</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item"data-index="6">
+
+                        <span class="song-number">07</span>
+
+                        <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=700"alt="Urban Rhythm">
+
+                        <div class="song-details">
+
+                            <h4>Urban Rhythm</h4>
+
+                            <p>Beat Mechanics</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item" data-index="7">
+
+                        <span class="song-number">08</span>
+
+                        <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=700" alt="Velvet Groove">
+
+                        <div class="song-details">
+
+                            <h4>Velvet Groove</h4>
+
+                            <p>Midnight Jazz</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item"data-index="8">
+
+                        <span class="song-number">09</span>
+
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=700"alt="Deep Focus">
+
+                        <div class="song-details">
+
+                            <h4>Deep Focus</h4>
+
+                            <p>Ambient Flow</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item"data-index="9">
+
+                        <span class="song-number">10</span>
+
+                        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=700" alt="Solar Flare">
+
+                        <div class="song-details">
+
+                            <h4>Solar Flare</h4>
+
+                            <p>Cosmic Beats
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="playlist-item" data-index="10">
+
+                        <span class="song-number">11</span>
+
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=700" alt="Ambient Chill">
+
+                        <div class="song-details">
+
+                            <h4>Ambient Chill</h4>
+
+                            <p>Serene Minds</p>
+
+                        </div>
+
+                        <span class="item-duration">
+                            —
+                        </span>
+
+                        <button class="item-play">
+
+                            <i class="fa-solid fa-play"></i>
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <audio id="audio"></audio>
+    <script src="MusicPlayer.js"></script>
+
+</body>
+
+</html>
